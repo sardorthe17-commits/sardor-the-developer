@@ -1,4 +1,3 @@
-import { adminLogin, adminParol } from "../../common/configs/admin.config"
 import { Injectable } from "@nestjs/common";
 import { adminLogin, adminParol } from "../../common/configs/admin.config"
 
