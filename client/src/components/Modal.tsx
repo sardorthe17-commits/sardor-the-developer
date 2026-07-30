@@ -1,0 +1,39 @@
+import { useEffect, type ReactNode } from 'react'
+
+interface ModalProps {
+  title: string
+  onClose: () => void
+  children: ReactNode
+  width?: number
+}
+
+export default function Modal({ title, onClose, children, width = 440 }: ModalProps) {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  return (
+    <div className="modal-overlay" onMouseDown={onClose}>
+      <div
+        className="modal"
+        style={{ width }}
+        onMouseDown={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+      >
+        <div className="modal__header">
+          <span>{title}</span>
+          <button className="modal__close" onClick={onClose} title="Yopish">
+            ×
+          </button>
+        </div>
+        <div className="modal__body">{children}</div>
+      </div>
+    </div>
+  )
+}
