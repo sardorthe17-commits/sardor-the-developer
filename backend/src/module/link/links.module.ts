@@ -11,4 +11,4 @@ import { LinkController } from "./links.controller";
     providers:[LinkService],
     controllers:[LinkController]
 })
-export class LinkModule{}
+export class UserModule{}
