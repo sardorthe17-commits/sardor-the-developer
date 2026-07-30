@@ -3,7 +3,7 @@ import { LinkService } from "./links.service";
 import { LinksCreateDtos } from "./dtos/create-links.dtos";
 import { UpdateLinkDtos } from "./dtos/update-links.dtos";
 
-@Controller()
+@Controller('login')
 export class LinkController{
     constructor(
         private readonly servic:LinkService
